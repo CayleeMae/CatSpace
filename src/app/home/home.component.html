@@ -1,0 +1,50 @@
+<div class="home">
+    <div class="home_top-nav-container">
+        <div class="home_top-nav-container_top">
+            <div class="home_top-nav-container_top_logo"></div>
+            <div class="home_top-nav-container_top_search">
+                <div class="home_top-nav-container_top_search_input">
+                    <input type="text" placeholder="Search Users">
+                </div>
+                <button type="submit">Search</button>
+            </div>
+            <div class="home_top-nav-container_top_links">
+                <a *ngFor="let links of topNavTLinks">
+                    {{links.name}}
+                </a>
+            </div>
+        </div>
+        <div class="home_top-nav-container_bottom">
+            <div class="home_top-nav-container_bottom-links">
+                <a *ngFor="let links of topNavBLinks">
+                    {{links.name}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="home_content-container">
+        <div class="home_content-container_left">
+            <div class="home_content-container_left_top">
+                <div class="home_content-container_left_top">
+                    <div *ngFor="let cats of newCats" class="new-cats">
+                    </div>
+                </div>
+                <div class="home_content-container_left_middle">
+                    <div class="music"></div>
+                </div>
+                <div class="home_content-container_left_bottom">
+                    <div *ngFor="let facts of catFacts" class="facts"></div>
+                </div>
+            </div>
+        </div>
+        <div class="home_content-container_right">
+            <div class="logo"></div>
+            <div class="login"></div>
+        </div>
+    </div>
+    <div class="home_bottom-nav-container">
+        <div class="about"></div>
+        <div class="faq"></div>
+        <div class="contact"></div>
+    </div>
+</div>
