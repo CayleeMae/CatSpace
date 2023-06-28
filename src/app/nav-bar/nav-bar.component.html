@@ -1,0 +1,62 @@
+<div id="top-bar">
+  <div class="top-nav-container_top">
+    <div class="top-nav-container_top_logo"></div>
+    <div class="top-nav-container_top_search">
+      <div class="top-nav-container_top_search_input">
+        <input type="text" placeholder="Search Users" />
+      </div>
+      <a routerLink="/search">
+      <button type="submit">Search</button>
+      </a>
+    </div>
+  </div>
+  <div class="top-nav-container_bottom">
+    <div class="top-nav-container_bottom-links"></div>
+    <div>
+      <a routerLink="/home">
+        <h1 id="app-heading">Home</h1>
+      </a>
+    </div>
+    <div>
+      <a routerLink="/cats">
+        <h1 id="app-heading">Browse</h1>
+      </a>
+    </div>
+    <div>
+      <a routerLink="/comedy">
+        <h1 id="app-heading">Comedy</h1>
+      </a>
+    </div>
+    <div>
+      <a routerLink="/music">
+        <h1 id="app-heading">Music</h1>
+      </a>
+    </div>
+    <div>
+      <a routerLink="/cat-facts">
+        <h1 id="app-heading">Cat Facts</h1>
+      </a>
+    </div>
+
+    <div *ngIf="loggedIn">
+      <a routerLink="/favorites">
+        <h1 id="app-heading">Favorites</h1>
+      </a>
+    </div>
+    <div *ngIf="loggedIn">
+      <a routerLink="/groups">
+        <h1 id="app-heading">Groups</h1>
+      </a>
+    </div>
+    <div *ngIf="loggedIn">
+      <a routerLink="/events">
+        <h1 id="app-heading">Events</h1>
+      </a>
+    </div>
+    <div *ngIf="loggedIn">
+      <a routerLink="/invite">
+        <h1 id="app-heading">Invite</h1>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="content-box">
+  <a routerLink="/cats">
+    <button>Back</button>
+  </a>
+  <h2>{{cat.name}}</h2>
+  <p>{{cat.description}}</p>
+  <a routerLink="/message/{{cat.id}}">
+    <button>Send Message</button>
+  </a>
+
+
+  <div *ngIf="loggedIn">
+    <a routerLink="/edit-profile/{{cat.id}}">
+      <button>Edit My Profile</button>
+    </a>
+    <a routerLink="/cats">
+      <button (click)="onDeleteClicked(cat.id)">Delete My Profile</button>
+    </a>
+  </div>
+</div>

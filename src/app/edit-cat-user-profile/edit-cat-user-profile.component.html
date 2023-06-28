@@ -1,0 +1,10 @@
+<div class="content-box">
+  <h2>Edit Profile</h2>
+  <app-cat-user-form
+    buttonText="Save Changes"
+    [currentEmail]="cat.email"
+    [currentPassword]="cat.password"
+    [currentName]="cat.name"
+    [currentDescription]="cat.description"
+    (onSubmit)="onSubmit()"></app-cat-user-form>
+</div>

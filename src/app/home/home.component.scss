@@ -64,7 +64,7 @@
                         background-color: transparent;
                         color: black;
                     }
-        
+
                     & > input::placeholder {
                         font-weight: bold;
                     }
@@ -98,9 +98,9 @@
         flex-direction: row;
         height: 100%;
         width: 100%;
-        padding: 30px;
+        padding: 1%;
         position: absolute;
-        margin-top: 149px;
+        margin-top: -3%;
 
         &_left {
             display: flex;

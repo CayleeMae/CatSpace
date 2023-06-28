@@ -1,0 +1,7 @@
+<div>
+  <div class="content-box" *ngFor="let cat of cats" >
+    <a routerLink="/cat/{{cat.id}}">
+        <h3>{{cat.name}}</h3>
+    </a>
+  </div>
+</div>

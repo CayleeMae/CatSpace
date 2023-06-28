@@ -1,45 +1,46 @@
 <div class="home">
-    <div class="home_top-nav-container">
-        <div class="home_top-nav-container_top">
-            <div class="home_top-nav-container_top_logo"></div>
-            <div class="home_top-nav-container_top_search">
-                <div class="home_top-nav-container_top_search_input">
-                    <input type="text" placeholder="Search Users">
-                </div>
-                <button type="submit">Search</button>
-            </div>
-            <div class="home_top-nav-container_top_links">
-                <a *ngFor="let links of topNavTLinks">
-                    {{links.name}}
-                </a>
-            </div>
-        </div>
-        <div class="home_top-nav-container_bottom">
-            <div class="home_top-nav-container_bottom-links">
-                <a *ngFor="let links of topNavBLinks">
-                    {{links.name}}
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="home_content-container">
         <div class="home_content-container_left">
             <div class="home_content-container_left_top">
                 <div class="home_content-container_left_top">
-                    <div *ngFor="let cats of newCats" class="new-cats">
-                    </div>
+                    <mat-card>
+                        <mat-card-header>New Cats</mat-card-header>
+                        <mat-card-content>
+                            <div *ngFor="let cats of newCats" class="new-cats">
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
                 </div>
                 <div class="home_content-container_left_middle">
-                    <div class="music"></div>
+                    <mat-card>
+                        <mat-card-header>CatSpace Music</mat-card-header>
+                        <mat-card-content>
+                            <div class="music"></div>
+                        </mat-card-content>
+                    </mat-card>
                 </div>
                 <div class="home_content-container_left_bottom">
-                    <div *ngFor="let facts of catFacts" class="facts"></div>
+                    <mat-card>
+                        <mat-card-header>Fact Of The Day</mat-card-header>
+                        <mat-card-content>
+                            <div *ngFor="let facts of catFacts" class="facts"></div>
+                        </mat-card-content>
+                    </mat-card>
                 </div>
             </div>
         </div>
         <div class="home_content-container_right">
             <div class="logo"></div>
-            <div class="login"></div>
+            <div class="login">
+              <a routerLink="/login">
+                <button>Login</button>
+              </a>
+            </div>
+            <div class="login">
+              <a routerLink="/sign-up">
+                <button>Create Profile</button>
+              </a>
+            </div>
         </div>
     </div>
     <div class="home_bottom-nav-container">

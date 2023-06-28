@@ -1,0 +1,10 @@
+<div class="content-box" *ngFor="let cat of cats">
+  <h3>{{cat.name}}</h3>
+  <p>{{cat.description}}</p>
+  <div class="buttons-container">
+    <a routerLink="/edit-profile/{{cat.id}}">
+      <button>Edit Profile</button>
+    </a>
+    <button (click)="onDeleteClicked(cat.id)">Delete Post</button>
+  </div>
+</div>
