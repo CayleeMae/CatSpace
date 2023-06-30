@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmailErrorStateMatcher} from './email-error-state-matcher';
+import { UpdateModalComponent } from './update-modal.component';
 
-describe('EmailErrorStateMatcher', () => {
-  let component: EmailErrorStateMatcher;
-  let fixture: ComponentFixture<EmailErrorStateMatcher>;
+describe('UpdateModalComponent', () => {
+  let component: UpdateModalComponent;
+  let fixture: ComponentFixture<UpdateModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmailErrorStateMatcher ]
+      declarations: [ UpdateModalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EmailErrorStateMatcher);
+    fixture = TestBed.createComponent(UpdateModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

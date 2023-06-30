@@ -31,8 +31,12 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/material.module';
+import { HttpClientModule } from  '@angular/common/http';
+import { ToastrModule} from 'ngx-toastr';
+import { RegisterComponent } from './register/register.component';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +63,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     HelpPageComponent,
     AboutPageComponent,
     ContactPageComponent,
+    RegisterComponent,
+    UpdateModalComponent,
 
   ],
   imports: [
@@ -71,6 +77,11 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     ReactiveFormsModule,
     MatDividerModule,
     MatListModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

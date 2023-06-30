@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { fakeCats } from 'src/assets/mockData/mock-cat-data';
 import { Cat } from 'src/assets/models/catInfo';
-import { EmailErrorStateMatcher } from '../validators/email-error-state-matcher/email-error-state-matcher';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,23 +14,23 @@ import { EmailErrorStateMatcher } from '../validators/email-error-state-matcher/
 export class LoginPageComponent implements OnInit{
 
 
-  public loginForm = new FormGroup({});
-  public emailFormControl = new FormControl('');
+  // public loginForm = new FormGroup({});
+  // public emailFormControl = new FormControl('');
   // public passwordValidator = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]);
-
-  public matcher = new EmailErrorStateMatcher();
-
   cat!: Cat;
+  userdata:any;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
-  ) {}
+    private builder: FormBuilder,
+    private toastr: ToastrService,
+    private service: AuthService,
+  ) {
+    sessionStorage.clear();
+  }
 
   ngOnInit(): void {
-    this.loginForm.addControl(
-      'email',
-      new FormControl('null', [Validators.required, Validators.email])
-    );
 
     const id = this.route.snapshot.paramMap.get('id');
     this.cat = fakeCats.find(cat => cat.id === id)!;
@@ -37,6 +38,37 @@ export class LoginPageComponent implements OnInit{
 
   public ngOnChanges() {
     console.log('fghjkl',this.loginForm.value);
+  }
+
+  loginForm=this.builder.group({
+    username:this.builder.control('', Validators.required),
+    password:this.builder.control('', Validators.required),
+  })
+
+  proceedLogin() {
+    // if(this.loginForm.valid){
+    //   this.service.proceedRegister(this.loginForm.value).subscribe(res => {
+    //     this.toastr.success('Please contact admin to enable access','Registered Successfully');
+    //     this.router.navigate(['login']);
+    //   });
+    // }else{
+    //   this.toastr.warning('Please enter valid data');
+    // }
+    this.service.getByCode(this.loginForm.value.username).subscribe(res => {
+      this.userdata = res;
+      console.log(this.userdata);
+      if(this.userdata.password === this.loginForm.value.password){
+        if(this.userdata.isActive){
+          sessionStorage.setItem('username', this.userdata.id);
+          sessionStorage.setItem('userrole', this.userdata.role);
+          this.router.navigate(['']);
+        }else {
+          this.toastr.error('Please contact admin', 'Inactive User');
+        }
+      } else {
+        this.toastr.error('Invalid credentials');
+      }
+    });
   }
 
   // getEmailErrorMessage() {

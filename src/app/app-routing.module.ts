@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatFriendsPageComponent } from './my-posts-page/my-posts-page.component';
 import { CatUserProfilePageComponent } from './cat-user-profile-page/cat-user-profile-page.component';
@@ -20,11 +20,13 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'cats', component: CatUsersComponent, pathMatch: 'full'},
+  {path: 'cats', component: CatUsersComponent, pathMatch: 'full', canActivate:[AuthGuard]},
   {path: 'cat/:id', component: CatUserProfilePageComponent},
   {path: 'message/:id', component: MessagePageComponent},
   {path: 'edit-profile/:id', component: EditCatUserProfileComponent},
@@ -43,7 +45,7 @@ const routes: Routes = [
   {path: 'about', component: AboutPageComponent},
   {path: 'contact', component: ContactPageComponent},
   {path: 'search', component: SearchPageComponent},
-
+  {path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
